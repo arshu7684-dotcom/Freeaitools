@@ -1,616 +1,281 @@
-// Complete tools data with all your tools
-const toolsData = {
-    categories: [
-        {
-            id: 'writing',
-            name: 'AI Writing Tools',
-            icon: '✍️',
-            description: 'Content creation, writing assistance',
-            count: 10,
-            color: 'from-blue-500 to-cyan-500'
-        },
-        {
-            id: 'image',
-            name: 'AI Image Generation',
-            icon: '🎨',
-            description: 'Create stunning visuals from text',
-            count: 10,
-            color: 'from-pink-500 to-rose-500'
-        },
-        {
-            id: 'video',
-            name: 'AI Video & Animation',
-            icon: '🎬',
-            description: 'Video generation and editing',
-            count: 10,
-            color: 'from-purple-500 to-indigo-500'
-        },
-        {
-            id: 'voice',
-            name: 'AI Voice & Music',
-            icon: '🎧',
-            description: 'Voice cloning and music generation',
-            count: 10,
-            color: 'from-green-500 to-emerald-500'
-        },
-        {
-            id: 'code',
-            name: 'AI Code & Developer Tools',
-            icon: '💻',
-            description: 'Code generation and assistance',
-            count: 10,
-            color: 'from-gray-600 to-gray-800'
-        },
-        {
-            id: 'editing',
-            name: 'AI Photo Editing',
-            icon: '🖼️',
-            description: 'Background removal and editing',
-            count: 10,
-            color: 'from-orange-500 to-red-500'
-        },
-        {
-            id: 'productivity',
-            name: 'AI Productivity & Research',
-            icon: '📊',
-            description: 'Research and productivity tools',
-            count: 10,
-            color: 'from-indigo-500 to-purple-500'
-        },
-        {
-            id: 'design',
-            name: 'AI Design & Branding',
-            icon: '💡',
-            description: 'Design and branding assistance',
-            count: 10,
-            color: 'from-yellow-500 to-orange-500'
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Nexus - Discover Free AI Tools</title>
+    <meta name="description" content="Discover the best free AI tools for image generation, video creation, writing, coding, and more. Curated directory for creators and developers.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-    ],
+    </script>
+</head>
+<body class="font-inter bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">AI Nexus</span>
+                </div>
 
-    tools: [
-        // 🧠 AI Writing Tools (10)
-        {
-            id: 1,
-            name: "ChatGPT",
-            description: "Advanced AI chatbot for writing and conversation",
-            category: "writing",
-            url: "https://chat.openai.com",
-            icon: "💬",
-            pricing: "freemium",
-            features: ["Content writing", "Code assistance", "Research"],
-            rating: 4.8,
-            trending: true
-        },
-        {
-            id: 2,
-            name: "Gemini",
-            description: "Google's AI assistant for writing and tasks",
-            category: "writing",
-            url: "https://gemini.google.com",
-            icon: "🔷",
-            pricing: "free",
-            features: ["Multimodal AI", "Google integration", "Research"],
-            rating: 4.6,
-            trending: true
-        },
-        {
-            id: 3,
-            name: "Copy.ai",
-            description: "AI writing assistant for marketing content",
-            category: "writing",
-            url: "https://copy.ai",
-            icon: "📝",
-            pricing: "freemium",
-            features: ["Marketing copy", "Content templates", "Brand voice"],
-            rating: 4.4,
-            trending: false
-        },
-        {
-            id: 4,
-            name: "Writesonic",
-            description: "AI writer for blogs, ads, and websites",
-            category: "writing",
-            url: "https://writesonic.com",
-            icon: "✏️",
-            pricing: "freemium",
-            features: ["Blog writing", "SEO content", "Multiple languages"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 5,
-            name: "Jasper AI",
-            description: "AI content creator for businesses",
-            category: "writing",
-            url: "https://jasper.ai",
-            icon: "🤖",
-            pricing: "paid",
-            features: ["Business content", "Brand voice", "Team collaboration"],
-            rating: 4.5,
-            trending: false
-        },
-        {
-            id: 6,
-            name: "Rytr",
-            description: "AI writing assistant for various content types",
-            category: "writing",
-            url: "https://rytr.me",
-            icon: "🖊️",
-            pricing: "freemium",
-            features: ["Content generation", "Multiple tones", "Plagiarism check"],
-            rating: 4.2,
-            trending: false
-        },
-        {
-            id: 7,
-            name: "Quillbot",
-            description: "AI paraphrasing and grammar checking tool",
-            category: "writing",
-            url: "https://quillbot.com",
-            icon: "🔄",
-            pricing: "freemium",
-            features: ["Paraphrasing", "Grammar check", "Summarizer"],
-            rating: 4.4,
-            trending: false
-        },
-        {
-            id: 8,
-            name: "Grammarly",
-            description: "AI writing assistant for grammar and style",
-            category: "writing",
-            url: "https://grammarly.com",
-            icon: "📚",
-            pricing: "freemium",
-            features: ["Grammar check", "Style suggestions", "Plagiarism detector"],
-            rating: 4.7,
-            trending: false
-        },
-        {
-            id: 9,
-            name: "ParagraphAI",
-            description: "AI writing assistant for various purposes",
-            category: "writing",
-            url: "https://paragraphai.com",
-            icon: "📄",
-            pricing: "freemium",
-            features: ["Content generation", "Email writing", "Social media"],
-            rating: 4.1,
-            trending: false
-        },
-        {
-            id: 10,
-            name: "Typely",
-            description: "Writing assistant for clarity and correctness",
-            category: "writing",
-            url: "https://typely.com",
-            icon: "🔍",
-            pricing: "free",
-            features: ["Proofreading", "Style guide", "Readability analysis"],
-            rating: 4.0,
-            trending: false
-        },
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#categories" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Categories</a>
+                    <a href="#trending" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Trending</a>
+                    <a href="#submit" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Submit Tool</a>
+                </div>
 
-        // 🎨 AI Image Generation (10)
-        {
-            id: 11,
-            name: "Leonardo AI",
-            description: "AI image generation with fine-tuned models",
-            category: "image",
-            url: "https://leonardo.ai",
-            icon: "🎨",
-            pricing: "freemium",
-            features: ["Image generation", "Model training", "High quality"],
-            rating: 4.6,
-            trending: true
-        },
-        {
-            id: 12,
-            name: "Playground AI",
-            description: "Creative AI image generation platform",
-            category: "image",
-            url: "https://playground.com",
-            icon: "🖼️",
-            pricing: "freemium",
-            features: ["Creative tools", "Multiple styles", "Easy to use"],
-            rating: 4.4,
-            trending: false
-        },
-        {
-            id: 13,
-            name: "BlueWillow",
-            description: "AI image generator for various art styles",
-            category: "image",
-            url: "https://bluewillow.ai",
-            icon: "🌊",
-            pricing: "free",
-            features: ["Multiple styles", "Community driven", "Regular updates"],
-            rating: 4.2,
-            trending: false
-        },
-        {
-            id: 14,
-            name: "CivitAI",
-            description: "AI art community with custom models",
-            category: "image",
-            url: "https://civitai.com",
-            icon: "🏛️",
-            pricing: "free",
-            features: ["Community models", "Style sharing", "Model training"],
-            rating: 4.3,
-            trending: true
-        },
-        {
-            id: 15,
-            name: "Mage Space",
-            description: "AI image generation with various models",
-            category: "image",
-            url: "https://mage.space",
-            icon: "🔮",
-            pricing: "freemium",
-            features: ["Multiple models", "No restrictions", "Fast generation"],
-            rating: 4.5,
-            trending: false
-        },
-        {
-            id: 16,
-            name: "NightCafe",
-            description: "AI art creator with multiple algorithms",
-            category: "image",
-            url: "https://creator.nightcafe.studio",
-            icon: "☕",
-            pricing: "freemium",
-            features: ["Multiple algorithms", "Art community", "Daily credits"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 17,
-            name: "Fotor AI",
-            description: "AI image generator and editor",
-            category: "image",
-            url: "https://fotor.com",
-            icon: "🖌️",
-            pricing: "freemium",
-            features: ["Image generation", "Photo editing", "Templates"],
-            rating: 4.2,
-            trending: false
-        },
-        {
-            id: 18,
-            name: "Canva AI",
-            description: "AI design tools within Canva platform",
-            category: "image",
-            url: "https://canva.com",
-            icon: "🎭",
-            pricing: "freemium",
-            features: ["Design tools", "Templates", "Magic design"],
-            rating: 4.7,
-            trending: true
-        },
-        {
-            id: 19,
-            name: "Bing Image Creator",
-            description: "Microsoft's AI image generator",
-            category: "image",
-            url: "https://bing.com/create",
-            icon: "🔍",
-            pricing: "free",
-            features: ["DALL-E powered", "Free credits", "Microsoft integration"],
-            rating: 4.4,
-            trending: false
-        },
-        {
-            id: 20,
-            name: "Firefly",
-            description: "Adobe's creative generative AI",
-            category: "image",
-            url: "https://firefly.adobe.com",
-            icon: "🔥",
-            pricing: "freemium",
-            features: ["Adobe ecosystem", "Professional tools", "Commercial use"],
-            rating: 4.6,
-            trending: true
-        },
+                <!-- Right Section -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Bar -->
+                    <div class="hidden md:flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-3 py-2">
+                        <i class="fas fa-search text-gray-400 mr-2"></i>
+                        <input type="text" placeholder="Search tools..." class="bg-transparent border-none focus:outline-none text-sm w-48 dark:text-white" id="searchInput">
+                    </div>
 
-        // 🎬 AI Video & Animation Tools (10)
-        {
-            id: 21,
-            name: "Pika Labs",
-            description: "AI video generation from text and images",
-            category: "video",
-            url: "https://pika.art",
-            icon: "⚡",
-            pricing: "freemium",
-            features: ["Text to video", "Image to video", "Style transfer"],
-            rating: 4.5,
-            trending: true
-        },
-        {
-            id: 22,
-            name: "Runway ML",
-            description: "AI video editing and generation platform",
-            category: "video",
-            url: "https://runwayml.com",
-            icon: "🎬",
-            pricing: "freemium",
-            features: ["Video editing", "AI magic tools", "Green screen"],
-            rating: 4.6,
-            trending: true
-        },
-        {
-            id: 23,
-            name: "Kaiber",
-            description: "AI-powered video creation platform",
-            category: "video",
-            url: "https://kaiber.ai",
-            icon: "🌊",
-            pricing: "freemium",
-            features: ["Video generation", "Music visualization", "Artistic styles"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 24,
-            name: "Synthesia",
-            description: "AI video generation with virtual avatars",
-            category: "video",
-            url: "https://synthesia.io",
-            icon: "👨‍💼",
-            pricing: "paid",
-            features: ["AI avatars", "Multiple languages", "Professional use"],
-            rating: 4.7,
-            trending: false
-        },
-        {
-            id: 25,
-            name: "HeyGen",
-            description: "AI video translator and avatar platform",
-            category: "video",
-            url: "https://heygen.com",
-            icon: "🎭",
-            pricing: "freemium",
-            features: ["Video translation", "Avatar creation", "Lip sync"],
-            rating: 4.4,
-            trending: true
-        },
-        {
-            id: 26,
-            name: "Animoto",
-            description: "AI-powered video maker for social media",
-            category: "video",
-            url: "https://animoto.com",
-            icon: "📹",
-            pricing: "freemium",
-            features: ["Social media videos", "Templates", "Easy to use"],
-            rating: 4.2,
-            trending: false
-        },
-        {
-            id: 27,
-            name: "Descript",
-            description: "AI video and audio editing platform",
-            category: "video",
-            url: "https://descript.com",
-            icon: "🎙️",
-            pricing: "freemium",
-            features: ["Video editing", "Audio editing", "Transcription"],
-            rating: 4.5,
-            trending: false
-        },
-        {
-            id: 28,
-            name: "Veed.io",
-            description: "Online video editing with AI features",
-            category: "video",
-            url: "https://veed.io",
-            icon: "✂️",
-            pricing: "freemium",
-            features: ["Video editing", "Subtitles", "AI avatars"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 29,
-            name: "FlexClip",
-            description: "AI video maker with templates",
-            category: "video",
-            url: "https://flexclip.com",
-            icon: "🎞️",
-            pricing: "freemium",
-            features: ["Video templates", "AI voiceover", "Stock media"],
-            rating: 4.1,
-            trending: false
-        },
-        {
-            id: 30,
-            name: "Lumen5",
-            description: "AI video creator for content repurposing",
-            category: "video",
-            url: "https://lumen5.com",
-            icon: "💡",
-            pricing: "freemium",
-            features: ["Content to video", "Brand kits", "Social media"],
-            rating: 4.2,
-            trending: false
-        },
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon"></i>
+                    </button>
 
-        // 🎧 AI Voice & Music Tools (10)
-        {
-            id: 31,
-            name: "ElevenLabs",
-            description: "Most realistic AI voice generation",
-            category: "voice",
-            url: "https://elevenlabs.io",
-            icon: "🎙️",
-            pricing: "freemium",
-            features: ["Voice cloning", "Text-to-speech", "Multiple languages"],
-            rating: 4.8,
-            trending: true
-        },
-        {
-            id: 32,
-            name: "Uberduck",
-            description: "AI voice generation and synth platform",
-            category: "voice",
-            url: "https://uberduck.ai",
-            icon: "🦆",
-            pricing: "freemium",
-            features: ["Voice cloning", "Text-to-speech", "Rap generation"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 33,
-            name: "Voicemod",
-            description: "AI voice changer and soundboard",
-            category: "voice",
-            url: "https://voicemod.net",
-            icon: "🎭",
-            pricing: "freemium",
-            features: ["Voice changing", "Soundboard", "Real-time effects"],
-            rating: 4.4,
-            trending: false
-        },
-        {
-            id: 34,
-            name: "Melobytes",
-            description: "AI music composition platform",
-            category: "voice",
-            url: "https://melobytes.com",
-            icon: "🎵",
-            pricing: "free",
-            features: ["Music composition", "Multiple genres", "AI algorithms"],
-            rating: 4.0,
-            trending: false
-        },
-        {
-            id: 35,
-            name: "Soundraw",
-            description: "AI music generator for creators",
-            category: "voice",
-            url: "https://soundraw.io",
-            icon: "🎶",
-            pricing: "freemium",
-            features: ["Music generation", "Royalty free", "Customizable"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 36,
-            name: "Beatoven",
-            description: "AI music composition for videos",
-            category: "voice",
-            url: "https://beatoven.ai",
-            icon: "🎻",
-            pricing: "freemium",
-            features: ["Video music", "Mood based", "Royalty free"],
-            rating: 4.2,
-            trending: false
-        },
-        {
-            id: 37,
-            name: "Mubert",
-            description: "AI music generator for streaming",
-            category: "voice",
-            url: "https://mubert.com",
-            icon: "🌊",
-            pricing: "freemium",
-            features: ["Royalty free", "Streaming", "Customizable"],
-            rating: 4.1,
-            trending: false
-        },
-        {
-            id: 38,
-            name: "LALAL.AI",
-            description: "AI vocal and instrument removal",
-            category: "voice",
-            url: "https://lalal.ai",
-            icon: "🎤",
-            pricing: "freemium",
-            features: ["Vocal removal", "Stem separation", "High quality"],
-            rating: 4.5,
-            trending: false
-        },
-        {
-            id: 39,
-            name: "Vocal Remover",
-            description: "AI tool to remove vocals from music",
-            category: "voice",
-            url: "https://vocalremover.org",
-            icon: "🎧",
-            pricing: "free",
-            features: ["Vocal removal", "Instrumental extraction", "Easy to use"],
-            rating: 4.2,
-            trending: false
-        },
-        {
-            id: 40,
-            name: "Aiva",
-            description: "AI composer for emotional music",
-            category: "voice",
-            url: "https://aiva.ai",
-            icon: "🎼",
-            pricing: "freemium",
-            features: ["Emotional music", "Multiple genres", "Commercial use"],
-            rating: 4.4,
-            trending: false
-        },
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
 
-        // 💻 AI Code & Developer Tools (10)
-        {
-            id: 41,
-            name: "GitHub Copilot",
-            description: "AI pair programmer for code completion",
-            category: "code",
-            url: "https://github.com/features/copilot",
-            icon: "🤖",
-            pricing: "freemium",
-            features: ["Code completion", "Multiple languages", "VS Code integration"],
-            rating: 4.5,
-            trending: true
-        },
-        {
-            id: 42,
-            name: "Replit Ghostwriter",
-            description: "AI coding assistant in browser",
-            category: "code",
-            url: "https://replit.com",
-            icon: "👻",
-            pricing: "freemium",
-            features: ["Browser based", "Code completion", "Learning tools"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 43,
-            name: "Codeium",
-            description: "Free AI code completion tool",
-            category: "code",
-            url: "https://codeium.com",
-            icon: "⚡",
-            pricing: "free",
-            features: ["Free tier", "Multiple IDEs", "Fast completion"],
-            rating: 4.4,
-            trending: true
-        },
-        {
-            id: 44,
-            name: "Tabnine",
-            description: "AI code completion for developers",
-            category: "code",
-            url: "https://tabnine.com",
-            icon: "🚀",
-            pricing: "freemium",
-            features: ["Code completion", "Multiple languages", "Team features"],
-            rating: 4.3,
-            trending: false
-        },
-        {
-            id: 45,
-            name: "Sourcegraph Cody",
-            description: "AI coding assistant by Sourcegraph",
-            category: "code",
-            url: "https://sourcegraph.com",
-            icon: "🔍",
-            pricing: "freemium",
-            features: ["Code search", "
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300">Home</a>
+                    <a href="#categories" class="text-gray-700 dark:text-gray-300">Categories</a>
+                    <a href="#trending" class="text-gray-700 dark:text-gray-300">Trending</a>
+                    <a href="#submit" class="text-gray-700 dark:text-gray-300">Submit Tool</a>
+                    <div class="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-3 py-2">
+                        <i class="fas fa-search text-gray-400 mr-2"></i>
+                        <input type="text" placeholder="Search..." class="bg-transparent border-none focus:outline-none text-sm flex-1 dark:text-white" id="mobileSearchInput">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                Supercharge Your
+                <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Creativity With AI</span>
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+                Discover, compare, and use the finest free AI tools—curated and organized for creators, developers, and innovators.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('categories')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                    Explore Top Tools <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button onclick="scrollToSection('submit')" class="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-white dark:hover:bg-gray-800 transition-all">
+                    Submit Your Tool <i class="fas fa-plus ml-2"></i>
+                </button>
+            </div>
+            <p class="mt-6 text-gray-500 dark:text-gray-400">
+                Trusted by 50,000+ monthly creators
+            </p>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Browse by Category
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Explore AI tools organized into specialized categories to find exactly what you need
+                </p>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12" id="categoriesGrid">
+                <!-- Categories will be loaded by JavaScript -->
+            </div>
+
+            <!-- Tools Grid -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" id="categoryTitle">All Tools</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="toolsGrid">
+                    <!-- Tools will be loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section id="trending" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    🔥 Trending This Week
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Most popular AI tools among our community
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="trendingGrid">
+                <!-- Trending tools will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Tool Section -->
+    <section id="submit" class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                        Submit Your AI Tool
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Share your amazing AI tool with our community of creators and developers
+                    </p>
+                </div>
+
+                <form id="submitForm" class="space-y-6 bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-sm">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tool Name</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white" placeholder="Enter tool name">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Website URL</label>
+                        <input type="url" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white" placeholder="https://example.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white">
+                            <option value="">Select category</option>
+                            <option value="writing">AI Writing Tools</option>
+                            <option value="image">AI Image Generation</option>
+                            <option value="video">AI Video Tools</option>
+                            <option value="voice">AI Voice Tools</option>
+                            <option value="code">AI Code Tools</option>
+                            <option value="editing">AI Photo Editing</option>
+                            <option value="productivity">AI Productivity</option>
+                            <option value="design">AI Design Tools</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white" placeholder="Brief description of your tool..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+                        Submit for Review <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-sm"></i>
+                        </div>
+                        <span class="text-xl font-bold">AI Nexus</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Discover the best free AI tools for creators, developers, and innovators.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">Explore</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#categories" class="hover:text-white transition-colors">Categories</a></li>
+                        <li><a href="#trending" class="hover:text-white transition-colors">Trending</a></li>
+                        <li><a href="#submit" class="hover:text-white transition-colors">Submit Tool</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 AI Nexus. Built with ❤️ for the AI community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>
