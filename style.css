@@ -1,0 +1,159 @@
+/* Custom Styles */
+:root {
+    --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom gradient text */
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Card hover effects */
+.tool-card {
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .tool-card {
+    border-color: #374151;
+}
+
+.dark .tool-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Category card styles */
+.category-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card.active {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #4b5563;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #3b82f6;
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* Form styles */
+.form-input:focus {
+    outline: none;
+    ring: 2px;
+}
+
+/* Search results styles */
+.search-highlight {
+    background-color: #fef3c7;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+.dark .search-highlight {
+    background-color: #7c2d12;
+}
+
+/* Tool rating styles */
+.rating-stars {
+    color: #fbbf24;
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+    transform: translateY(-10px);
+    opacity: 0;
+}
+
+.mobile-menu-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+/* Category color variations */
+.category-image { background: linear-gradient(135deg, #ec4899, #f97316); }
+.category-video { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+.category-voice { background: linear-gradient(135deg, #10b981, #059669); }
+.category-writing { background: linear-gradient(135deg, #3b82f6, #06b6d4); }
+.category-chatbot { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.category-code { background: linear-gradient(135deg, #6b7280, #374151); }
+.category-music { background: linear-gradient(135deg, #eab308, #ea580c); }
+.category-research { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
